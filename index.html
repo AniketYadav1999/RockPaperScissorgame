@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Game</title>
+    <style>
+         body{
+            text-align: center;
+            background-image: url("./HD-Grass-Wallpaper.jpg");
+            background-repeat: no-repeat;
+         }
+        
+        button{
+            width: 120px;
+            height: 40px;
+            margin: 10px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: #1f1f4f;
+            color: white;
+            text-shadow: 0 0 3px #e90b0b, 0 0 5px #e4e4ea;
+            box-shadow:0 0 3px #FF0000, 0 0 5px #f2f2f6;
+        }
+        button:hover{
+            background-color: rgb(150, 221, 150);
+
+        }
+        .header
+        {
+            font-size: 50px;
+            color: white;
+            text-shadow: 0 0 3px #e90b0b, 0 0 5px #e4e4ea;
+            border-color: 2px solid greenyellow;   
+        }
+        #data,#data1{
+            font-size: 25px;
+            color: white;
+            text-shadow: 0 0 3px #e90b0b, 0 0 5px #e4e4ea;
+        }
+        #data2{
+            font-size: 50px;
+            animation:lukzuk 1s alternate infinite;
+              color: white;
+            text-shadow: 0 0 3px #e90b0b, 0 0 5px #e4e4ea;
+        }
+            @keyframes lukzuk {
+                0%{ font-size:10px}
+                100%{ font-size:30px}
+            }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo{
+            height:200px;
+        }
+       @media screen and (max-width:445px) {
+          .logo{
+            height: 150px;
+          }
+          .header{
+            font-size: 40px;
+          }
+       }
+    </style>
+</head>
+<body>
+    <!-- <audio src="raw-drum-loop-87bpm-144045.mp3" autoplay loop></audio> -->
+    <header>
+        <nav>
+            <img class="logo" src="./emojipng.com-11763149.png">
+        </nav>
+    </header>
+    <h1 class="header">Rock Paper Scissor Game</h1>
+    <button onclick="rock()">Rock</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="Scissor()">Scissor</button>
+    <h3 id="data">Let's Start...!</h3>
+    <h3 id="data1"></h3>
+    <h1 id="data2"></h1>
+    <script>
+
+           var sound1 = new Audio('mixkit-arcade-game-complete-or-approved-mission-205.wav'); 
+           var sound2 = new Audio('mixkit-funny-game-over-2878.wav');
+           var sound3=new Audio('mixkit-retro-arcade-lose-2027.wav')
+        function rock() {
+            let randomnumber=Math.random() *3;
+            let computerchoice;
+            if(randomnumber >0 && randomnumber<=1)
+            {  
+                 computerchoice='rock'
+            }
+            else if(randomnumber >1 && randomnumber<=2)
+            {  
+                 computerchoice='paper'
+            }
+            else
+            {  
+                 computerchoice='Scissor'
+            }
+            document.querySelector("#data").innerText="You Choose Rock "
+            document.querySelector("#data1").innerText=`Computer choose ${computerchoice}`;
+
+            if(computerchoice==="rock")
+            {
+                document.querySelector("#data2").innerText="Match Draw";
+                sound2.play();
+            }
+             else if(computerchoice==="paper")
+            {
+                document.querySelector("#data2").innerText=" Paper Wraps Rock...\nComputer Win☹️";
+                sound3.play();
+            }
+            else{
+                document.querySelector("#data2").innerText="Rock blunts the Scissor...\nYou Win  🏆 🥳";
+                sound1.play();
+            }
+        }
+// ----------------------------------------------------------------
+        function paper() {
+            let randomnumber=Math.random() *3;
+            let computerchoice;
+            if(randomnumber >0 && randomnumber<=1)
+            {  
+                 computerchoice='rock'
+            }
+            else if(randomnumber >1 && randomnumber<=2)
+            {  
+                 computerchoice='paper'
+            }
+            else
+            {  
+                 computerchoice='Scissor'
+            }
+            document.querySelector("#data").innerText="You Choose Paper"
+            document.querySelector("#data1").innerText=`Computer choose ${computerchoice}`;
+
+            if(computerchoice==="rock")
+            {
+                document.querySelector("#data2").innerText="Paper Wraps Rock...\n You Win  🏆 🥳";
+                sound1.play();
+            }
+             else if(computerchoice==="paper")
+            {
+                document.querySelector("#data2").innerText="Match Draw";
+                sound2.play();
+            }
+            else{
+                document.querySelector("#data2").innerText="Scissor cut the Paper...\n Computer Win ☹️";
+                sound3.play();
+            }
+        }
+// ----------------------------------------------------------------
+        function Scissor() {
+            let randomnumber=Math.random() *3;
+            let computerchoice;
+            if(randomnumber >0 && randomnumber<=1)
+            {  
+                 computerchoice='rock'
+            }
+            else if(randomnumber >1 && randomnumber<=2)
+            {  
+                 computerchoice='paper'
+            }
+            else
+            {  
+                 computerchoice='Scissor'
+            }
+            document.querySelector("#data").innerText="You Choose Scissor"
+            document.querySelector("#data1").innerText=`Computer choose ${computerchoice}`;
+
+            if(computerchoice==="rock")
+            {
+                document.querySelector("#data2").innerText="Rock blunts the Scissor...\n Computer Win☹️ ";
+                sound3.play();
+            }
+             else if(computerchoice==="paper")
+            {
+                document.querySelector("#data2").innerText="Scissor cut the Paper...\n You Win  🏆 🥳";
+                sound1.play();
+            }
+            else{
+                document.querySelector("#data2").innerText="Match Draw";
+                sound2.play();
+            }
+        }
+    </script>
+</body>
+</html>
